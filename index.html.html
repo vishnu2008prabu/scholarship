@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Subject Allocation for College Faculty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2f5f4;--surface:#fff;--ink:#12261f;--muted:#51655d;--line:#cfdad5;--accent:#0b6b57;--accent-ink:#fff;--ok:#0b6b57;--warn:#9a5b00;--bad:#b42318;--chip:#e3ece8;
+color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1815;--surface:#16241f;--ink:#e6f1ec;--muted:#9fb5ab;--line:#2b3f37;--accent:#4fc3a1;--accent-ink:#06201a;--ok:#4fc3a1;--warn:#f0b24a;--bad:#ff8a7a;--chip:#20332c;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1815;--surface:#16241f;--ink:#e6f1ec;--muted:#9fb5ab;--line:#2b3f37;--accent:#4fc3a1;--accent-ink:#06201a;--ok:#4fc3a1;--warn:#f0b24a;--bad:#ff8a7a;--chip:#20332c;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1rem/1.55 "Schibsted Grotesk",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.brand{font-weight:900;letter-spacing:-.02em;font-size:1.1rem}
+nav a{margin-left:18px;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+.hero{padding:56px 0 28px}
+h1{font-size:clamp(2.3rem,6vw,4.4rem);line-height:1.02;letter-spacing:-.035em;font-weight:900;margin:0 0 18px;max-width:15ch}
+.lead{font-size:1.15rem;color:var(--muted);max-width:60ch;margin:0}
+h2{font-size:1.6rem;letter-spacing:-.02em;margin:0 0 6px}
+section{padding:36px 0}
+.bar{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:18px 0 14px}
+button{font:inherit;font-weight:700;border-radius:8px;padding:10px 16px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+button.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.stat{margin-left:auto;color:var(--muted);font-weight:500}
+.board{display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:start}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.scroll{overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:middle}
+th{font-size:.85rem;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:0}
+td small{display:block;color:var(--muted)}
+select{font:inherit;padding:7px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--ink);max-width:100%}
+.flag{color:var(--warn);font-size:.85rem;font-weight:500}
+.fac{padding:14px 16px;border-bottom:1px solid var(--line)}
+.fac:last-child{border-bottom:0}
+.fac h3{margin:0;font-size:1rem;display:flex;justify-content:space-between;gap:8px}
+.fac p{margin:2px 0 8px;color:var(--muted);font-size:.9rem}
+.meter{height:10px;background:var(--chip);border-radius:6px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--ok);transition:width .3s}
+.meter i.warn{background:var(--warn)}
+.meter i.bad{background:var(--bad)}
+.note{font-size:.85rem;margin-top:6px;font-weight:500}
+.note.bad{color:var(--bad)}.note.warn{color:var(--warn)}.note.ok{color:var(--ok)}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:28px 36px;margin-top:20px}
+.rules h3{margin:0 0 4px;font-size:1.05rem}
+.rules p{margin:0;color:var(--muted)}
+.steps{margin:18px 0 0;padding:0;list-style:none;display:grid;gap:14px;counter-reset:s;max-width:70ch}
+.steps li{counter-increment:s;padding-left:46px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--chip);display:grid;place-items:center;font-weight:700}
+footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.9rem}
+@media (max-width:860px){.board{grid-template-columns:1fr}.stat{margin-left:0;width:100%}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><span class="brand">FacultyFit</span><nav><a href="#board">Try it</a><a href="#rules">Rules</a><a href="#process">Process</a></nav></div></header>
+<main>
+<div class="wrap">
+<div class="hero">
+<h1>Give every subject the right teacher.</h1>
+<p class="lead">Allocate theory and lab subjects to college faculty by specialization and workload. Every change is checked against the department rules as you make it.</p>
+</div>
+
+<section id="board" style="padding-top:8px">
+<h2>Allocation board</h2>
+<p class="lead" style="font-size:1rem">Sample Computer Science department, odd semester. Pick a teacher for each subject, or let the board suggest one.</p>
+<div class="bar">
+<button class="primary" id="auto">Suggest allocation</button>
+<button id="clear">Clear all</button>
+<span class="stat" id="stat" role="status" aria-live="polite"></span>
+</div>
+<div class="board">
+<div class="panel scroll"><table>
+<thead><tr><th>Subject</th><th>Section</th><th>Hours</th><th>Teacher</th></tr></thead>
+<tbody id="subjects"></tbody></table></div>
+<div class="panel" id="faculty"></div>
+</div>
+</section>
+
+<section id="rules">
+<h2>Rules the board checks</h2>
+<div class="rules">
+<div><h3>Workload capacity</h3><p>Each teacher has weekly hours available. Going over is flagged in red before you submit.</p></div>
+<div><h3>Specialization</h3><p>Subjects outside a teacher's declared areas are marked so the HOD can add a reason.</p></div>
+<div><h3>Preparations</h3><p>More than 4 different subjects for one teacher is flagged, since each needs separate preparation.</p></div>
+<div><h3>Full coverage</h3><p>Every subject-section needs a teacher. Unassigned ones stay visible until covered.</p></div>
+</div>
+</section>
+
+<section id="process">
+<h2>How allocation runs</h2>
+<ol class="steps">
+<li><strong>Collect inputs.</strong> Subjects with credits and weekly hours, plus faculty with designation, specialization and capacity.</li>
+<li><strong>Place core subjects first.</strong> Match high-credit subjects to specialists and senior faculty.</li>
+<li><strong>Add labs and electives.</strong> Assign lab batches and fill the remaining hours while balancing load.</li>
+<li><strong>Review.</strong> Resolve flags, then send the allocation to the HOD and Principal for approval.</li>
+</ol>
+</section>
+</div>
+</main>
+<footer><div class="wrap">FacultyFit is a demo of a faculty subject allocation workflow. Sample names and hours are fictional.</div></footer>
+
+<script>
+var FAC=[
+{id:"f1",n:"Dr. Meera Iyer",d:"Professor",cap:8,t:["core","math"]},
+{id:"f2",n:"Dr. Arun Kumar",d:"Associate Professor",cap:10,t:["db","sys"]},
+{id:"f3",n:"Ms. Priya Nair",d:"Assistant Professor",cap:12,t:["db","web"]},
+{id:"f4",n:"Mr. Rahul Menon",d:"Assistant Professor",cap:12,t:["ai","core"]},
+{id:"f5",n:"Ms. Fatima Sheikh",d:"Visiting Faculty",cap:6,t:["math","web"]}];
+var SUB=[
+{c:"CS201",n:"Data Structures",s:"II-A",h:4,t:"core"},
+{c:"CS202",n:"Data Structures",s:"II-B",h:4,t:"core"},
+{c:"CS205",n:"Discrete Mathematics",s:"II-A",h:3,t:"math"},
+{c:"CS301",n:"Design of Algorithms",s:"III-A",h:4,t:"core"},
+{c:"CS303",n:"Database Systems",s:"III-A",h:4,t:"db"},
+{c:"CS353",n:"DBMS Lab",s:"III-A",h:3,t:"db"},
+{c:"CS305",n:"Operating Systems",s:"III-B",h:4,t:"sys"},
+{c:"CS355",n:"Web Technologies Lab",s:"III-B",h:3,t:"web"},
+{c:"CS401",n:"Machine Learning",s:"IV-A",h:4,t:"ai"},
+{c:"CS451",n:"ML Lab",s:"IV-A",h:3,t:"ai"}];
+var TAGN={core:"core computing",math:"mathematics",db:"databases",sys:"systems",web:"web",ai:"AI and ML"};
+var A={};
+function fac(id){return FAC.filter(function(f){return f.id===id})[0]}
+function load(id){var h=0;SUB.forEach(function(s){if(A[s.c]===id)h+=s.h});return h}
+function count(id){return SUB.filter(function(s){return A[s.c]===id}).length}
+function render(){
+var tb=document.getElementById("subjects");tb.innerHTML="";
+SUB.forEach(function(s){
+var tr=document.createElement("tr");
+var td1=document.createElement("td");td1.innerHTML="<strong>"+s.n+"</strong><small>"+s.c+" · "+TAGN[s.t]+"</small>";
+var td2=document.createElement("td");td2.textContent=s.s;
+var td3=document.createElement("td");td3.textContent=s.h+" h";
+var td4=document.createElement("td");
+var sel=document.createElement("select");sel.setAttribute("aria-label","Teacher for "+s.n+" "+s.s);
+var o=document.createElement("option");o.value="";o.textContent="Unassigned";sel.appendChild(o);
+FAC.forEach(function(f){var p=document.createElement("option");p.value=f.id;p.textContent=f.n;if(A[s.c]===f.id)p.selected=true;sel.appendChild(p)});
+sel.onchange=function(){if(sel.value)A[s.c]=sel.value;else delete A[s.c];render()};
+td4.appendChild(sel);
+var f=fac(A[s.c]);
+if(f&&f.t.indexOf(s.t)<0){var w=document.createElement("div");w.className="flag";w.textContent="Outside specialization";td4.appendChild(w)}
+tr.appendChild(td1);tr.appendChild(td2);tr.appendChild(td3);tr.appendChild(td4);tb.appendChild(tr)});
+var box=document.getElementById("faculty");box.innerHTML="";var over=0;
+FAC.forEach(function(f){
+var l=load(f.id),k=count(f.id),pct=Math.min(100,Math.round(l/f.cap*100));
+var cls=l>f.cap?"bad":(l>=f.cap*0.85?"warn":"");
+var msg="",mc="ok";
+if(l>f.cap){msg="Over capacity by "+(l-f.cap)+" h";mc="bad";over++}
+else if(k>4){msg=k+" different subjects, limit is 4";mc="warn"}
+else if(l===0){msg="No subjects yet";mc="warn"}
+else{msg=(f.cap-l)+" h still available"}
+var d=document.createElement("div");d.className="fac";
+d.innerHTML="<h3><span>"+f.n+"</span><span>"+l+" / "+f.cap+" h</span></h3><p>"+f.d+" · "+f.t.map(function(x){return TAGN[x]}).join(", ")+"</p><div class=\"meter\"><i class=\""+cls+"\" style=\"width:"+pct+"%\"></i></div><div class=\"note "+mc+"\">"+msg+"</div>";
+box.appendChild(d)});
+var done=SUB.filter(function(s){return A[s.c]}).length;
+document.getElementById("stat").textContent=done+" of "+SUB.length+" subjects assigned · "+over+" over capacity"}
+document.getElementById("auto").onclick=function(){
+A={};
+SUB.slice().sort(function(a,b){return b.h-a.h}).forEach(function(s){
+var best=null,bs=1e9;
+FAC.forEach(function(f){
+var l=load(f.id);if(l+s.h>f.cap)return;
+var score=l/f.cap+(f.t.indexOf(s.t)<0?10:0);
+if(score<bs){bs=score;best=f}});
+if(best)A[s.c]=best.id});
+render()};
+document.getElementById("clear").onclick=function(){A={};render()};
+render();
+</script>
+</body>
+</html>
